@@ -22,18 +22,18 @@ public class LoginScreen {
 
 
         TextField loginFld = new TextField();
-        Text loginText = new Text("Login");
-        loginText.setWrappingWidth(60);
+        Text loginSign = new Text("Login");
+        loginSign.setWrappingWidth(60);
         HBox loginBox = new HBox();
-        loginBox.getChildren().addAll(loginText, loginFld);
+        loginBox.getChildren().addAll(loginSign, loginFld);
         loginBox.setAlignment(Pos.CENTER);
 
 
         TextField passFld = new TextField();
-        Text passText = new Text("Password");
-        passText.setWrappingWidth(60);
+        Text passSign = new Text("Password");
+        passSign.setWrappingWidth(60);
         HBox passBox = new HBox();
-        passBox.getChildren().addAll(passText, passFld);
+        passBox.getChildren().addAll(passSign, passFld);
         passBox.setAlignment(Pos.CENTER);
 
 
@@ -43,8 +43,8 @@ public class LoginScreen {
 
 
         CheckBox offlineChBox = new CheckBox();
-        Text offlineText = new Text("Offline");
-        offlineText.setWrappingWidth(40);
+        Text offlineSign = new Text("Offline");
+        offlineSign.setWrappingWidth(40);
 
 
         Button logInBtn = new Button("Log In");
@@ -77,7 +77,7 @@ public class LoginScreen {
         });
 
         HBox buttonBox = new HBox();
-        buttonBox.getChildren().addAll(offlineChBox, offlineText, logInBtn);
+        buttonBox.getChildren().addAll(offlineChBox, offlineSign, logInBtn);
         buttonBox.setSpacing(30);
         buttonBox.setAlignment(Pos.CENTER);
 
@@ -97,18 +97,38 @@ public class LoginScreen {
     private static boolean PerformLogin(String login, String pass, boolean offline) {
 
         System.out.println("Trying to login... With " + login + " : " + pass);
+
         if (offline && !SaveGameWorker.CheckIfLocalSaveExists()) {
 
-            System.out.println("No local saves found...\n Looking online...");
+            System.out.println("No local saves found...\n Creatin offline acc!");
 
             //TODO try to login online or create new acc
 
-        } else if (offline) {
+            // temporary this is used for passing login screen
 
-            System.out.println("Loging offline");
+            try {
+
+                SaveGameWorker.InitOfflineSave(login, pass);
+                return true;
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+
+        }
+
+
+        if (offline && SaveGameWorker.CheckIfLocalSaveExists()) {
+
+            System.out.println("Loading offline");
             //TODO login offline
 
-        } else if (!offline) {
+
+        }
+
+
+        if (!offline) {
 
             System.out.println("Trying to login online...");
             //TODO login online

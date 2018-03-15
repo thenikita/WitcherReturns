@@ -7,9 +7,9 @@ import com.thenikita.witcherreturns.game.units.Unit;
 
 import java.util.Vector;
 
-public class Player extends Unit {
+public class Hero extends Unit {
 
-    public Player(String name, int health, int energy) {
+    public Hero(String name, int health, int energy) {
 
         super(health, energy);
 

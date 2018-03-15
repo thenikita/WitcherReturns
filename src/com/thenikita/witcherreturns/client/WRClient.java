@@ -17,6 +17,8 @@ import javafx.scene.text.Text;
 
 public class WRClient extends Application {
 
+    public static Session gameSession = new Session();
+
     public static void main(String args[]){
 
         launch(args);
