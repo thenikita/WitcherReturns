@@ -55,18 +55,22 @@ public class MainMenu {
         Text nameSign = new Text("Character's name");
         nameSign.setWrappingWidth(110);
 
-        Button commitBtn = new Button("Commit");
+        Button commitBtn = new Button("Create");
         commitBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
                 String newName = heroNameField.getText();
 
-                WRClient.gameSession.save.AddHero(new Hero(newName, DEFAULT_HERO_HP, DEFAULT_HERO_ENERGY));
-                System.out.println("Hero is created!");
+                if (!newName.equals("")) {
 
-                System.out.println("Game is starting");
-                Game.Start(WRClient.gameSession.save);
+                    WRClient.gameSession.save.AddHero(new Hero(newName, DEFAULT_HERO_HP, DEFAULT_HERO_ENERGY));
+                    System.out.println("Hero is created!");
+
+                    System.out.println("Game is starting");
+                    Game.Start(WRClient.gameSession.save);
+
+                }
             }
         });
 
