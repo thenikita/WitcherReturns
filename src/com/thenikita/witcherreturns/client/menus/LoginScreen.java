@@ -1,6 +1,6 @@
 package com.thenikita.witcherreturns.client.menus;
 
-import com.thenikita.witcherreturns.client.SaveGameWorker;
+import com.thenikita.witcherreturns.client.savegame.SaveGameWorker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -18,7 +18,7 @@ public class LoginScreen {
 
     public static void BehaveLoginScreen(Stage primaryStage) {
 
-        primaryStage.setTitle("Hello! Log in Please!");
+        primaryStage.setTitle("Welcome, Witcher!");
 
 
         TextField loginFld = new TextField();
@@ -45,9 +45,6 @@ public class LoginScreen {
         CheckBox offlineChBox = new CheckBox();
         Text offlineText = new Text("Offline");
         offlineText.setWrappingWidth(40);
-        HBox offlineBox = new HBox();
-        offlineBox.getChildren().addAll(offlineChBox, offlineText);
-        offlineBox.setAlignment(Pos.BOTTOM_LEFT);
 
 
         Button logInBtn = new Button("Log In");
@@ -80,12 +77,15 @@ public class LoginScreen {
         });
 
         HBox buttonBox = new HBox();
-        buttonBox.getChildren().addAll(logInBtn);
-        buttonBox.setAlignment(Pos.BOTTOM_RIGHT);
+        buttonBox.getChildren().addAll(offlineChBox, offlineText, logInBtn);
+        buttonBox.setSpacing(30);
+        buttonBox.setAlignment(Pos.CENTER);
 
+        dataBox.getChildren().add(buttonBox);
+        dataBox.setSpacing(10);
 
         StackPane rootPane = new StackPane();
-        rootPane.getChildren().addAll(dataBox, offlineBox, buttonBox);
+        rootPane.getChildren().addAll(dataBox);
         //StackPane.setAlignment(logInBtn, Pos.BOTTOM_RIGHT);
         //StackPane.setAlignment(offlineBox, Pos.CENTER_LEFT);
 

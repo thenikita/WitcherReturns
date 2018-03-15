@@ -1,15 +1,13 @@
 package com.thenikita.witcherreturns.client.menus;
 
-import com.thenikita.witcherreturns.client.NoSavedGameException;
-import com.thenikita.witcherreturns.client.SaveGameWorker;
+import com.thenikita.witcherreturns.client.exceptions.NoSavedGameException;
+import com.thenikita.witcherreturns.client.savegame.SaveGameWorker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-
-import java.awt.*;
 
 public class MainMenu {
 
@@ -28,7 +26,7 @@ public class MainMenu {
 
                 try {
 
-                    SaveGameWorker.LoadGame();
+                    SaveGameWorker.LoadOfflineSavedGame();
 
                 } catch (NoSavedGameException e) {
 

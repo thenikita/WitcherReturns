@@ -1,4 +1,4 @@
-package com.thenikita.witcherreturns.client;
+package com.thenikita.witcherreturns.client.exceptions;
 
 public class NoSavedGameException extends Exception {
 

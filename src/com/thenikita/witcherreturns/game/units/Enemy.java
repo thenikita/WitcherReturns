@@ -7,8 +7,28 @@ import com.thenikita.witcherreturns.game.units.Unit;
 
 public class Enemy extends Unit {
 
+    public Enemy(int hp, int en) {
+
+        super(hp, en);
+    }
+
     @Override
     public void Attack() {
+
+    }
+
+    @Override
+    public void DealDamage() {
+
+    }
+
+    @Override
+    public void GetDamaged() {
+
+    }
+
+    @Override
+    public void Move() {
 
     }
 }

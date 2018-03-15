@@ -4,23 +4,13 @@ package com.thenikita.witcherreturns.game;
 // all possible saved data for user and current session
 // state as well
 
-import com.thenikita.witcherreturns.client.NoSavedGameException;
-import com.thenikita.witcherreturns.client.SaveGameWorker;
+import com.thenikita.witcherreturns.client.exceptions.NoSavedGameException;
+import com.thenikita.witcherreturns.client.savegame.SaveGame;
+import com.thenikita.witcherreturns.client.savegame.SaveGameWorker;
 
 public class Game {
 
-    public static void Start() {
+    public static void Start(SaveGame save) {
 
-        System.out.println("Staring the game...");
-
-        try {
-
-            System.out.println("Trying to load the game...");
-            SaveGameWorker.LoadGame();
-
-        } catch (NoSavedGameException e) {
-
-            e.printStackTrace();
-        }
     }
 }
